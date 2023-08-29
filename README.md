@@ -1,3 +1,1 @@
-# Project-Starter-With-TS
-
-WebPack, Babel, TS를 이용한 리액트 프로젝트 세팅
+# ✨ 원티드 프리온보딩 인턴십 WEEK2 개인과제
