@@ -31,7 +31,6 @@ export const getIssues = createAsyncThunk('issues/getIssues', async (page: numbe
 });
 
 // TODO: issue_id로 하나만 가져오기
-// TODO: issue 필터 (open, comment 순)
 
 const issueSlice = createSlice({
   name: 'issue',
@@ -43,7 +42,6 @@ const issueSlice = createSlice({
     });
     builder.addCase(getIssues.fulfilled, (state, action) => {
       state.isLoading = false;
-      // state.issueList = action.payload;
       action.payload.forEach((ele: any) => {
         state.issueList.push(ele);
       });
