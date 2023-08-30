@@ -24,7 +24,7 @@ const IssueListPage = () => {
 
   useEffect(() => {
     if (target.current) {
-      isLoading ? unobserve(target.current) : observe(target.current);
+      isLoading ? observe(target.current) : unobserve(target.current);
     }
   }, [isLoading]);
 

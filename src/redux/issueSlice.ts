@@ -24,6 +24,7 @@ export const getIssues = createAsyncThunk('issues/getIssues', async (page: numbe
     },
     page: page,
     per_page: 15,
+    sort: 'comments',
   });
 
   return response.data;
