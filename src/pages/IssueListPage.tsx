@@ -7,10 +7,11 @@ import { styled } from 'styled-components';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import Skeleton from '../components/Skeleton';
 import IssueListItem from '../components/IssueListItem';
+import AdBanner from '../components/AdBanner';
 
 const IssueListPage = () => {
   const [page, setPage] = useState(1);
-  const [observe, unobserve] = useIntersectionObserver(() => {
+  const [observe, unobserve, disconnect] = useIntersectionObserver(() => {
     setPage(page => page + 1);
   });
 
@@ -36,7 +37,10 @@ const IssueListPage = () => {
         isLoading ? (
           <Skeleton key={index}></Skeleton>
         ) : (
-          <IssueListItem key={index} target={target} issue={issue}></IssueListItem>
+          <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {index !== 0 && index % 4 === 0 && <AdBanner></AdBanner>}
+            <IssueListItem key={index} target={target} issue={issue}></IssueListItem>
+          </div>
         ),
       )}
     </IssueListContainer>

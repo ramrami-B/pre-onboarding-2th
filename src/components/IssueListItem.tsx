@@ -8,7 +8,7 @@ interface IssueListItemProps {
 
 const IssueListItem = ({ target, issue }: IssueListItemProps) => {
   return (
-    <IssueItemBox ref={target}>
+    <IssueItemBox ref={target} id="issue-list-item">
       <div>
         <p style={{ fontWeight: 700 }}>
           [#{issue.number}]&nbsp; &nbsp;📌 Title: {issue.title}

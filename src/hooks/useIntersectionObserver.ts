@@ -18,7 +18,11 @@ const useIntersectionObserver = (callback: any) => {
   const unobserve = (element: any) => {
     observer.current.unobserve(element);
   };
-  return [observe, unobserve];
+
+  const disconnect = () => {
+    observer.current.disconnect();
+  };
+  return [observe, unobserve, disconnect];
 };
 
 export default useIntersectionObserver;
