@@ -6,6 +6,7 @@ import { RootState } from '../redux/store';
 import { styled } from 'styled-components';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import Skeleton from '../components/Skeleton';
+import { AiOutlineComment } from 'react-icons/ai';
 
 const IssueListPage = () => {
   const [page, setPage] = useState(1);
@@ -44,7 +45,10 @@ const IssueListPage = () => {
                 작성자: {issue.user.login}, 작성일: {issue.updated_at}
               </p>
             </div>
-            <p>{issue.comments}</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+              <AiOutlineComment  size={30}/>
+              <p>{issue.comments}</p>
+            </div>
           </IssueItemBox>
         ),
       )}
