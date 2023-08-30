@@ -6,7 +6,7 @@ import { RootState } from '../redux/store';
 import { styled } from 'styled-components';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import Skeleton from '../components/Skeleton';
-import { AiOutlineComment } from 'react-icons/ai';
+import IssueListItem from '../components/IssueListItem';
 
 const IssueListPage = () => {
   const [page, setPage] = useState(1);
@@ -36,20 +36,7 @@ const IssueListPage = () => {
         isLoading ? (
           <Skeleton key={index}></Skeleton>
         ) : (
-          <IssueItemBox key={index} ref={target}>
-            <div>
-              <p style={{ fontWeight: 700 }}>
-                [#{issue.number}]&nbsp; &nbsp;📌 Title: {issue.title}
-              </p>
-              <p>
-                ✍🏻 작성자: {issue.user.login}&nbsp; &nbsp;🗓️ 작성일: {issue.updated_at}
-              </p>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-              <AiOutlineComment size={30} />
-              <p>{issue.comments}개</p>
-            </div>
-          </IssueItemBox>
+          <IssueListItem key={index} target={target} issue={issue}></IssueListItem>
         ),
       )}
     </IssueListContainer>
@@ -63,15 +50,4 @@ const IssueListContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-`;
-
-const IssueItemBox = styled.div`
-  width: 80%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1.5rem;
-  background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
