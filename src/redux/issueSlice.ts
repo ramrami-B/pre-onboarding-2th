@@ -23,7 +23,6 @@ export const getIssues = createAsyncThunk('issues/getIssues', async (page: numbe
       accept: 'application/vnd.github+json',
     },
     page: page,
-    per_page: 15,
     sort: 'comments',
   });
 
