@@ -30,10 +30,10 @@ const IssueListPage = () => {
 
   return (
     <IssueListContainer>
-      {isLoading ? (
-        <div>로딩 중...</div>
-      ) : (
-        Object.values(issues).map((issue: any, index: number) => (
+      {Object.values(issues).map((issue: any, index: number) =>
+        isLoading ? (
+          <div>로딩 중...</div>
+        ) : (
           <IssueItemBox key={index} ref={target}>
             <div>
               <p>
@@ -45,7 +45,7 @@ const IssueListPage = () => {
             </div>
             <p>{issue.comments}</p>
           </IssueItemBox>
-        ))
+        ),
       )}
     </IssueListContainer>
   );
