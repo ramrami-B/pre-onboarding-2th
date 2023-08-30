@@ -5,6 +5,7 @@ import { useAppSelector } from '../hooks/useAppSelector';
 import { RootState } from '../redux/store';
 import { styled } from 'styled-components';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
+import Skeleton from '../components/Skeleton';
 
 const IssueListPage = () => {
   const [page, setPage] = useState(1);
@@ -30,10 +31,10 @@ const IssueListPage = () => {
 
   return (
     <IssueListContainer>
-      {isLoading ? (
-        <div>로딩 중...</div>
-      ) : (
-        Object.values(issues).map((issue: any, index: number) => (
+      {Object.values(issues).map((issue: any, index: number) =>
+        isLoading ? (
+          <Skeleton key={index}></Skeleton>
+        ) : (
           <IssueItemBox key={index} ref={target}>
             <div>
               <p>
@@ -45,7 +46,7 @@ const IssueListPage = () => {
             </div>
             <p>{issue.comments}</p>
           </IssueItemBox>
-        ))
+        ),
       )}
     </IssueListContainer>
   );

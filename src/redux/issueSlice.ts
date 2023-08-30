@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { octokit } from '../api/octokit';
 
 interface IssuesState {
-  issueList: [];
+  issueList: object[];
   issue: {};
   isLoading: boolean;
   error: null | string;
@@ -24,6 +24,7 @@ export const getIssues = createAsyncThunk('issues/getIssues', async (page: numbe
     },
     page: page,
     per_page: 15,
+    sort: 'comments',
   });
 
   return response.data;
@@ -42,7 +43,10 @@ const issueSlice = createSlice({
     });
     builder.addCase(getIssues.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.issueList = action.payload;
+      // state.issueList = action.payload;
+      action.payload.forEach((ele: any) => {
+        state.issueList.push(ele);
+      });
     });
     builder.addCase(getIssues.rejected, (state, action) => {
       state.isLoading = false;
