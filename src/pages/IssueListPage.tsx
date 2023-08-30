@@ -38,16 +38,16 @@ const IssueListPage = () => {
         ) : (
           <IssueItemBox key={index} ref={target}>
             <div>
-              <p>
-                #{issue.number} {issue.title}
+              <p style={{ fontWeight: 700 }}>
+                [#{issue.number}]&nbsp; &nbsp;📌 Title: {issue.title}
               </p>
               <p>
-                작성자: {issue.user.login}, 작성일: {issue.updated_at}
+                ✍🏻 작성자: {issue.user.login}&nbsp; &nbsp;🗓️ 작성일: {issue.updated_at}
               </p>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-              <AiOutlineComment  size={30}/>
-              <p>{issue.comments}</p>
+              <AiOutlineComment size={30} />
+              <p>{issue.comments}개</p>
             </div>
           </IssueItemBox>
         ),
