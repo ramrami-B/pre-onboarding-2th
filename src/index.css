@@ -13,3 +13,7 @@ code {
 input {
   font-family: 'Apple SD Gothic Neo';
 }
+
+p {
+  font-size: 1.2rem;
+}
