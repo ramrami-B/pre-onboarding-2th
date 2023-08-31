@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { AiOutlineComment } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 interface IssueListItemProps {
   target: any;
@@ -8,20 +9,22 @@ interface IssueListItemProps {
 
 const IssueListItem = ({ target, issue }: IssueListItemProps) => {
   return (
-    <IssueItemBox ref={target} id="issue-list-item">
-      <div>
-        <p style={{ fontWeight: 700 }}>
-          [#{issue.number}]&nbsp; &nbsp;📌 Title: {issue.title}
-        </p>
-        <p>
-          ✍🏻 작성자: {issue.user.login}&nbsp; &nbsp;🗓️ 작성일: {issue.updated_at}
-        </p>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-        <AiOutlineComment size={30} />
-        <p>{issue.comments}개</p>
-      </div>
-    </IssueItemBox>
+    <Link to={`/issue/${issue.number}`} style={{ textDecoration: 'none', color: '#000' }}>
+      <IssueItemBox ref={target} id="issue-list-item">
+        <div>
+          <p style={{ fontWeight: 700 }}>
+            [#{issue.number}]&nbsp; &nbsp;📌 Title: {issue.title}
+          </p>
+          <p>
+            ✍🏻 작성자: {issue.user.login}&nbsp; &nbsp;🗓️ 작성일: {issue.updated_at}
+          </p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+          <AiOutlineComment size={30} />
+          <p>{issue.comments}개</p>
+        </div>
+      </IssueItemBox>
+    </Link>
   );
 };
 
