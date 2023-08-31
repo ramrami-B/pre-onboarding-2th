@@ -40,7 +40,6 @@ const HeadContainer = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 0.5rem 1.5rem;
   border-radius: 0.625rem 0.625rem 0rem 0rem;
   border: 0.2px solid var(--primary, #545f71);
