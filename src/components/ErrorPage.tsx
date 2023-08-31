@@ -11,17 +11,17 @@ const ErrorPage = () => {
     navigate('/');
   };
   return (
-    <ErrorContainert>
+    <ErrorContainer>
       <h1 style={{ color: '#E5361F' }}>🚨😵ERROR OCURED!!!😵🚨</h1>
       <h1>message: {error}</h1>
       <Button onClick={handlerReloadButton}>새로고침</Button>
-    </ErrorContainert>
+    </ErrorContainer>
   );
 };
 
 export default ErrorPage;
 
-const ErrorContainert = styled.div`
+const ErrorContainer = styled.div`
   width: 70%;
   margin: auto;
   border-radius: 0.625rem;

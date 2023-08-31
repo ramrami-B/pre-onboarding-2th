@@ -5,10 +5,10 @@ import { useAppSelector } from '../hooks/useAppSelector';
 import { RootState } from '../redux/store';
 import { styled } from 'styled-components';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
-import Skeleton from '../components/Skeleton';
+import Skeleton from '../components/LoadingPage';
 import IssueListItem from '../components/IssueListItem';
 import AdBanner from '../components/AdBanner';
-import ErrorPage from './ErrorPage';
+import ErrorPage from '../components/ErrorPage';
 
 const IssueListPage = () => {
   const [page, setPage] = useState(1);

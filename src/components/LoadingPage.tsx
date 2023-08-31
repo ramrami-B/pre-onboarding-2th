@@ -1,20 +1,20 @@
 import { styled } from 'styled-components';
 
-const Skeleton = () => {
+const LoadingPage = () => {
   return (
-    <SkeletonContainer>
+    <LoadingContainer>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <TitleBox></TitleBox>
         <InfoBox></InfoBox>
       </div>
       <CommentBox></CommentBox>
-    </SkeletonContainer>
+    </LoadingContainer>
   );
 };
 
-export default Skeleton;
+export default LoadingPage;
 
-const SkeletonContainer = styled.div`
+const LoadingContainer = styled.div`
   width: 80%;
   margin: auto;
   display: flex;

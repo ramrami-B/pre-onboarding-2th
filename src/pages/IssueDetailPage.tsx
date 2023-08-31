@@ -6,9 +6,9 @@ import { getIssueDetail } from '../redux/issueSlice';
 import { AiOutlineComment } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import ReactMarkdown from 'react-markdown';
-import Skeleton from '../components/Skeleton';
+import LoadingPage from '../components/LoadingPage';
 import { styled } from 'styled-components';
-import ErrorPage from './ErrorPage';
+import ErrorPage from '../components/ErrorPage';
 
 const IssueDetailPage = () => {
   const dispatch = useAppDispatch();
@@ -26,7 +26,7 @@ const IssueDetailPage = () => {
   return error ? (
     <ErrorPage></ErrorPage>
   ) : isLoading ? (
-    <Skeleton></Skeleton>
+    <LoadingPage></LoadingPage>
   ) : (
     <IssueDetailContainer>
       <HeaderBox>
