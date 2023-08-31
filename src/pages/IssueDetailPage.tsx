@@ -9,6 +9,7 @@ import ReactMarkdown from 'react-markdown';
 import LoadingPage from '../components/LoadingPage';
 import { styled } from 'styled-components';
 import ErrorPage from '../components/ErrorPage';
+import { colors } from '../constants/colors';
 
 const IssueDetailPage = () => {
   const dispatch = useAppDispatch();
@@ -28,52 +29,47 @@ const IssueDetailPage = () => {
   ) : isLoading ? (
     <LoadingPage></LoadingPage>
   ) : (
-    <IssueDetailContainer>
-      <HeaderBox>
-        <div style={{ width: '10%' }}>
-          {issue.avatarUrl ? (
-            <img
-              src={issue.avatarUrl}
-              style={{ width: '100%', height: '100%', borderRadius: '70%' }}
-            ></img>
-          ) : (
-            <CgProfile></CgProfile>
-          )}
-        </div>
-        <div style={{ width: '80%' }}>
-          <p style={{ fontWeight: 700 }}>
-            [#{issue.number}]&nbsp; &nbsp;📌 Title: {issue.title}
-          </p>
-          <p>
-            ✍🏻 작성자: {issue.user}&nbsp; &nbsp;🗓️ 작성일: {issue.updatedAt}
-          </p>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-          <AiOutlineComment size={30} />
-          <p>{issue.comments}개</p>
-        </div>
-      </HeaderBox>
-      <BodyBox>
+    <div>
+      <HeadContainer>
+        <h2>
+          [#{issue.number}]&nbsp; &nbsp;{issue.title}
+        </h2>
+        <InfoBox>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            {issue.avatarUrl ? (
+              <ProfileImageWrapper>
+                <img
+                  src={issue.avatarUrl}
+                  style={{ width: '100%', height: '100%', borderRadius: '70%' }}
+                ></img>
+              </ProfileImageWrapper>
+            ) : (
+              <CgProfile size={70}></CgProfile>
+            )}
+            <p>
+              ✍🏻 작성자: {issue.user}&nbsp; &nbsp;🗓️ 작성일: {issue.updatedAt}
+            </p>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+            <AiOutlineComment size={30} />
+            <p>{issue.comments}개</p>
+          </div>
+        </InfoBox>
+      </HeadContainer>
+      <BodyContainer>
         <ReactMarkdown children={issue.body}></ReactMarkdown>
-      </BodyBox>
-    </IssueDetailContainer>
+      </BodyContainer>
+    </div>
   );
 };
 
 export default IssueDetailPage;
 
-const IssueDetailContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`;
-
-const HeaderBox = styled.div`
+const HeadContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 0.5rem 1.5rem;
   border-radius: 0.625rem 0.625rem 0rem 0rem;
@@ -81,13 +77,25 @@ const HeaderBox = styled.div`
   background: #fff;
 `;
 
-const BodyBox = styled.div`
+const BodyContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   padding: 0.5rem 1.5rem;
   border-radius: 0rem 0rem 0.625rem 0.625rem;
-  border-right: 0.2px solid var(--primary, #24292f);
-  border-bottom: 0.2px solid var(--primary, #24292f);
-  border-left: 0.2px solid var(--primary, #24292f);
-  background: #fff;
+  border-right: 0.2px solid var(--primary, ${colors.primary});
+  border-bottom: 0.2px solid var(--primary, ${colors.primary});
+  border-left: 0.2px solid var(--primary, ${colors.primary});
+  background: ${colors.white};
+`;
+
+const InfoBox = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const ProfileImageWrapper = styled.div`
+  height: 3rem;
+  width: 3rem;
 `;

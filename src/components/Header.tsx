@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import Logo from '../assets/logo.svg';
+import { colors } from '../constants/colors';
 
 const Header = () => {
   return (
@@ -15,8 +16,14 @@ const Header = () => {
 export default Header;
 
 const HeaderLayout = styled.div`
-  width: 100vw;
-  height: 15%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  background-color: ${colors.white};
+  z-index: 100;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const HeaderContainer = styled.div`

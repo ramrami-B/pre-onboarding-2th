@@ -1,12 +1,13 @@
 import { styled } from 'styled-components';
 import Header from '../components/Header';
+import { colors } from '../constants/colors';
 
 const PageLayout = ({ children }: any) => {
   return (
-    <Layout>
+    <div style={{ width: '100vw', height: '100vh' }}>
       <Header></Header>
-      {children}
-    </Layout>
+      <Layout>{children}</Layout>
+    </div>
   );
 };
 
@@ -14,8 +15,9 @@ export default PageLayout;
 
 const Layout = styled.div`
   width: 100%;
-  height: 100vh;
+  margin-top: 8rem;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: ${colors.white};
+  overflow: auto;
 `;
