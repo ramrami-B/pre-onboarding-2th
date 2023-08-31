@@ -67,14 +67,17 @@ const InfoBox = styled.div`
 `;
 
 const PostInfo = styled.div`
+  width: 100%;
   display: flex;
   gap: 1rem;
+  align-items: center;
 
   @media (max-width: 425px) {
-    align-items: flex-start;
+    align-items: center;
   }
 
   @media (max-width: 320px) {
+    align-items: flex-start;
     flex-direction: column;
   }
 `;
@@ -84,11 +87,8 @@ const ProfileImageWrapper = styled.div`
 `;
 
 const WriterDateWrapper = styled.div`
+  width: 100%;
   display: flex;
-  gap: 1rem;
   align-items: center;
-
-  @media (max-width: 425px) {
-    gap: 0;
-  }
+  gap: 1rem;
 `;
