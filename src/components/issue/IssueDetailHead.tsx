@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import { AiOutlineComment } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import { colors } from '../../constants/colors';
+import { dateFormatter } from '../../utils/dateFormatter';
 
 const IssueDetailHead = ({ issue }: any) => {
   return (
@@ -20,7 +21,7 @@ const IssueDetailHead = ({ issue }: any) => {
           )}
           <WriterDateWrapper>
             <span>✍🏻 작성자: {issue.user}</span>
-            <span>🗓️ 작성일: {issue.updatedAt}</span>
+            <span>🗓️ 작성일: {dateFormatter(issue.updatedAt)}</span>
           </WriterDateWrapper>
         </PostInfo>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
