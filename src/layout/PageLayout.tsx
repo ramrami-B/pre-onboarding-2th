@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import Header from '../components/Header';
+import Header from './Header';
 import { colors } from '../constants/colors';
 
 const PageLayout = ({ children }: any) => {

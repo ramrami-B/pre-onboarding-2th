@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { AiOutlineComment } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { colors } from '../constants/colors';
+import { colors } from '../../constants/colors';
 
 interface IssueListItemProps {
   target: any;

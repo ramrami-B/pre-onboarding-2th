@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { styled } from 'styled-components';
-import { RootState } from '../redux/store';
 import { Link, useNavigate } from 'react-router-dom';
-import { colors } from '../constants/colors';
+import { RootState } from '../../redux/store';
+import { colors } from '../../constants/colors';
 
-const ErrorPage = () => {
+const Error = () => {
   const navigate = useNavigate();
   const error = useSelector((state: RootState) => state.issues.error);
 
@@ -20,7 +20,7 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default Error;
 
 const ErrorContainer = styled.div`
   width: 70%;
