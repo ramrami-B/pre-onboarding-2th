@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import { AiOutlineComment } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { colors } from '../../constants/colors';
+import { dateFormatter } from '../../utils/dateFormatter';
 
 interface IssueListItemProps {
   target: any;
@@ -18,7 +19,7 @@ const IssueListItem = ({ target, issue }: IssueListItemProps) => {
         <WriterDateCommentsWrapper>
           <div>
             <p>✍🏻 작성자: {issue.user.login}</p>
-            <p>🗓️ 작성일: {issue.updated_at}</p>
+            <p>🗓️ 작성일: {dateFormatter(issue.updated_at)}</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <AiOutlineComment size={30} />
