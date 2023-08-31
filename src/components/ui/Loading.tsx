@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
-import { colors } from '../constants/colors';
+import { colors } from '../../constants/colors';
 
-const LoadingPage = () => {
+const Loading = () => {
   return (
     <LoadingContainer>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -13,7 +13,7 @@ const LoadingPage = () => {
   );
 };
 
-export default LoadingPage;
+export default Loading;
 
 const LoadingContainer = styled.div`
   width: 80%;
@@ -22,7 +22,7 @@ const LoadingContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  background:${colors.white};
+  background: ${colors.white};
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 

@@ -5,10 +5,11 @@ import { useAppSelector } from '../hooks/useAppSelector';
 import { RootState } from '../redux/store';
 import { styled } from 'styled-components';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
-import Skeleton from '../components/LoadingPage';
-import IssueListItem from '../components/IssueListItem';
-import AdBanner from '../components/AdBanner';
-import ErrorPage from '../components/ErrorPage';
+import Skeleton from '../components/ui/Loading';
+import IssueListItem from '../components/issue/IssueListItem';
+import AdBanner from '../components/ui/AdBanner';
+import Error from '../components/ui/Error';
+import Loading from '../components/ui/Loading';
 
 const IssueListPage = () => {
   const [page, setPage] = useState(1);
@@ -34,12 +35,12 @@ const IssueListPage = () => {
   }, [isLoading]);
 
   return error ? (
-    <ErrorPage></ErrorPage>
+    <Error></Error>
   ) : (
     <>
       {Object.values(issues).map((issue: any, index: number) =>
         isLoading ? (
-          <Skeleton key={index}></Skeleton>
+          <Loading key={index}></Loading>
         ) : (
           <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {index !== 0 && index % 4 === 0 && <AdBanner></AdBanner>}
