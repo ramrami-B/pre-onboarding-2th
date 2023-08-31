@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 import AppRoutes from './routes';
 import { Provider } from 'react-redux';
