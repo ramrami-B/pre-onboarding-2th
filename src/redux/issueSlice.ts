@@ -77,7 +77,6 @@ const issueSlice = createSlice({
     });
     builder.addCase(getIssueDetail.fulfilled, (state, action) => {
       state.isLoading = false;
-      console.log(action.payload);
       state.issue = {
         number: action.payload.number,
         title: action.payload.title,
