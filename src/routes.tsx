@@ -1,12 +1,14 @@
 // routes.tsx
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
+import IssueListPage from './pages/IssueListPage';
+import IssueDetailPage from './pages/IssueDetailPage';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" Component={Home} />
+      <Route path="/" Component={IssueListPage} />
+      <Route path="issue/:id" Component={IssueDetailPage} />
     </Routes>
   );
 };

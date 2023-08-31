@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -29,6 +30,10 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'file-loader'],
+      },
     ],
   },
   plugins: [
@@ -36,6 +41,7 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
     }),
+    new Dotenv(),
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),
