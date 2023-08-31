@@ -24,6 +24,11 @@ const LoadingContainer = styled.div`
   padding: 1.5rem;
   background: ${colors.white};
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 425px) {
+    width: 90%;
+    padding: 0.5rem;
+  }
 `;
 
 const TitleBox = styled.div`
@@ -32,6 +37,11 @@ const TitleBox = styled.div`
   flex-shrink: 0;
   background: ${colors.gray};
   border-radius: 0.2rem;
+
+  @media (max-width: 425px) {
+    width: 8rem;
+    height: 1rem;
+  }
 `;
 
 const InfoBox = styled.div`
@@ -47,6 +57,11 @@ const InfoBox = styled.div`
     ${colors.gray} 100%
   );
   border-radius: 0.2rem;
+
+  @media (max-width: 425px) {
+    width: 12rem;
+    height: 1rem;
+  }
 `;
 
 const CommentBox = styled.div`
@@ -62,4 +77,9 @@ const CommentBox = styled.div`
     ${colors.gray} 97.92%
   );
   border-radius: 0.2rem;
+
+  @media (max-width: 425px) {
+    width: 3rem;
+    height: 2rem;
+  }
 `;
