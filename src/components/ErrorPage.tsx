@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { styled } from 'styled-components';
 import { RootState } from '../redux/store';
 import { Link, useNavigate } from 'react-router-dom';
+import { colors } from '../constants/colors';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -25,8 +26,8 @@ const ErrorContainer = styled.div`
   width: 70%;
   margin: auto;
   border-radius: 0.625rem;
-  border: 0.5px solid var(--primary, #24292f);
-  background: #fff;
+  border: 0.5px solid var(--primary, ${colors.primary});
+  background: ${colors.white};
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   text-align: center;
   padding: 8rem 1rem;
@@ -38,8 +39,8 @@ const Button = styled.button`
   height: 3rem;
   margin: auto;
   border-radius: 0.625rem;
-  background: var(--primary, #24292f);
-  color: #fff;
+  background: var(--primary, ${colors.primary});
+  color: ${colors.white};
   font-size: 1.5rem;
   font-weight: 600;
 `;

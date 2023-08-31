@@ -36,7 +36,7 @@ const IssueListPage = () => {
   return error ? (
     <ErrorPage></ErrorPage>
   ) : (
-    <IssueListContainer>
+    <>
       {Object.values(issues).map((issue: any, index: number) =>
         isLoading ? (
           <Skeleton key={index}></Skeleton>
@@ -47,15 +47,8 @@ const IssueListPage = () => {
           </div>
         ),
       )}
-    </IssueListContainer>
+    </>
   );
 };
 
 export default IssueListPage;
-const IssueListContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-`;

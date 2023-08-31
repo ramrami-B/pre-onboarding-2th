@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { colors } from '../constants/colors';
 
 const AdBanner = () => {
   const handlerOpenWanted = () => {
@@ -23,8 +24,8 @@ const AdBannerBox = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0.5rem 1.5rem;
-  background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: ${colors.white};
+  border-bottom: 0.3px solid var(--primary, ${colors.primary});
 `;
 
 const AdImage = styled.img`
