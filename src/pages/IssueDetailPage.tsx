@@ -49,6 +49,14 @@ export const BodyContainer = styled.div`
   border-left: 0.2px solid var(--primary, ${colors.primary});
   background: ${colors.white};
 
+  @media (max-width: 425px) {
+    width: 95%;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  // MARKDOWN STYLE
   & h2 {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgb(209 213 219);

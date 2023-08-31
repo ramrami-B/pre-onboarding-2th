@@ -20,4 +20,8 @@ const Layout = styled.div`
   flex-direction: column;
   background-color: ${colors.white};
   overflow: auto;
+
+  @media (max-width: 425px) {
+    margin-top: 5rem;
+  }
 `;

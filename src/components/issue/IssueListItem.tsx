@@ -12,18 +12,19 @@ const IssueListItem = ({ target, issue }: IssueListItemProps) => {
   return (
     <Link to={`/issue/${issue.number}`} style={{ textDecoration: 'none', color: '#000' }}>
       <IssueItemBox ref={target} id="issue-list-item">
-        <div>
-          <p style={{ fontWeight: 700 }}>
-            [#{issue.number}]&nbsp; &nbsp;{issue.title}
-          </p>
-          <p>
-            ✍🏻 작성자: {issue.user.login}&nbsp; &nbsp;🗓️ 작성일: {issue.updated_at}
-          </p>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-          <AiOutlineComment size={30} />
-          <p>{issue.comments}개</p>
-        </div>
+        <p style={{ fontWeight: 700 }}>
+          [#{issue.number}]&nbsp; &nbsp;{issue.title}
+        </p>
+        <WriterDateCommentsWrapper>
+          <div>
+            <p>✍🏻 작성자: {issue.user.login}</p>
+            <p>🗓️ 작성일: {issue.updated_at}</p>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <AiOutlineComment size={30} />
+            <p>{issue.comments}</p>
+          </div>
+        </WriterDateCommentsWrapper>
       </IssueItemBox>
     </Link>
   );
@@ -35,9 +36,24 @@ const IssueItemBox = styled.div`
   width: 80%;
   margin: auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0.5rem 1.5rem;
   background: ${colors.white};
   border-bottom: 0.3px solid var(--primary, ${colors.primary});
+
+  @media (max-width: 320px) {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+`;
+
+const WriterDateCommentsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem;
 `;
