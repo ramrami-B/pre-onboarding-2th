@@ -26,8 +26,19 @@ const AdBannerBox = styled.div`
   padding: 0.5rem 1.5rem;
   background: ${colors.white};
   border-bottom: 0.3px solid var(--primary, ${colors.primary});
+
+  @media (max-width: 320px) {
+    width: 100%;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const AdImage = styled.img`
   width: 15%;
+
+  @media (max-width: 320px) {
+    width: 40%;
+  }
 `;

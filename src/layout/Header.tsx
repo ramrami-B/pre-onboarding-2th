@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <HeaderLayout>
       <HeaderContainer>
-        <img src={Logo} style={{ width: '3rem', height: '3rem', margin: '0 2rem' }} />
+        <LogoImage src={Logo}></LogoImage>
         <h1>facebook / react</h1>
       </HeaderContainer>
     </HeaderLayout>
@@ -24,6 +24,10 @@ const HeaderLayout = styled.div`
   background-color: ${colors.white};
   z-index: 100;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 425px) {
+    height: 4rem;
+  }
 `;
 
 const HeaderContainer = styled.div`
@@ -32,4 +36,15 @@ const HeaderContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+`;
+
+const LogoImage = styled.img`
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0.8rem;
+
+  @media (max-width: 320px) {
+    width: 2rem;
+    height: 2rem;
+  }
 `;

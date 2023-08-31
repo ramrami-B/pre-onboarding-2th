@@ -17,8 +17,27 @@ input {
 p {
   font-size: 1rem;
   font-family: 'Apple SD Gothic Neo';
+  margin: 10px;
 }
 
 h1 h2 h3 h4 {
   font-family: 'Apple SD Gothic Neo';
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+  p {
+    margin: 8px;
+  }
 }

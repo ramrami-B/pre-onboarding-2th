@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { AiOutlineComment } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
+import { colors } from '../../constants/colors';
 
 const IssueDetailHead = ({ issue }: any) => {
   return (
@@ -9,21 +10,19 @@ const IssueDetailHead = ({ issue }: any) => {
         [#{issue.number}]&nbsp; &nbsp;{issue.title}
       </h2>
       <InfoBox>
-        <div style={{ display: 'flex', gap: '1rem' }}>
+        <PostInfo>
           {issue.avatarUrl ? (
             <ProfileImageWrapper>
-              <img
-                src={issue.avatarUrl}
-                style={{ width: '100%', height: '100%', borderRadius: '70%' }}
-              ></img>
+              <img src={issue.avatarUrl} style={{ width: '100%', borderRadius: '70%' }}></img>
             </ProfileImageWrapper>
           ) : (
             <CgProfile size={70}></CgProfile>
           )}
-          <p>
-            ✍🏻 작성자: {issue.user}&nbsp; &nbsp;🗓️ 작성일: {issue.updatedAt}
-          </p>
-        </div>
+          <WriterDateWrapper>
+            <span>✍🏻 작성자: {issue.user}</span>
+            <span>🗓️ 작성일: {issue.updatedAt}</span>
+          </WriterDateWrapper>
+        </PostInfo>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
           <AiOutlineComment size={30} />
           <p>{issue.comments}개</p>
@@ -42,8 +41,16 @@ const HeadContainer = styled.div`
   flex-direction: column;
   padding: 0.5rem 1.5rem;
   border-radius: 0.625rem 0.625rem 0rem 0rem;
-  border: 0.2px solid var(--primary, #545f71);
+  border: 0.2px solid var(--primary, ${colors.primary});
   background: #fff;
+
+  @media (max-width: 425px) {
+    width: 95%;
+    padding: 0;
+    border: none;
+    border-bottom: 0.2px solid var(--primary, ${colors.primary});
+    border-radius: 0;
+  }
 `;
 
 const InfoBox = styled.div`
@@ -51,9 +58,36 @@ const InfoBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+`;
+
+const PostInfo = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 425px) {
+    align-items: flex-start;
+  }
+
+  @media (max-width: 320px) {
+    flex-direction: column;
+  }
 `;
 
 const ProfileImageWrapper = styled.div`
-  height: 3rem;
   width: 3rem;
+`;
+
+const WriterDateWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  @media (max-width: 425px) {
+    gap: 0;
+  }
 `;
