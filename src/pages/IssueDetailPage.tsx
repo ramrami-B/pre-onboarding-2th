@@ -8,11 +8,14 @@ import { CgProfile } from 'react-icons/cg';
 import ReactMarkdown from 'react-markdown';
 import Skeleton from '../components/Skeleton';
 import { styled } from 'styled-components';
+import ErrorPage from './ErrorPage';
 
 const IssueDetailPage = () => {
   const dispatch = useAppDispatch();
+
   const issue = useAppSelector((state: RootState) => state.issues.issue);
   const isLoading = useAppSelector((state: RootState) => state.issues.isLoading);
+  const error = useAppSelector((state: RootState) => state.issues.error);
 
   const issueId = parseInt(window.location.hash.split('/')[2]);
 
@@ -20,7 +23,9 @@ const IssueDetailPage = () => {
     dispatch(getIssueDetail(issueId));
   }, []);
 
-  return isLoading ? (
+  return error ? (
+    <ErrorPage></ErrorPage>
+  ) : isLoading ? (
     <Skeleton></Skeleton>
   ) : (
     <IssueDetailContainer>

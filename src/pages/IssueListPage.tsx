@@ -8,6 +8,7 @@ import useIntersectionObserver from '../hooks/useIntersectionObserver';
 import Skeleton from '../components/Skeleton';
 import IssueListItem from '../components/IssueListItem';
 import AdBanner from '../components/AdBanner';
+import ErrorPage from './ErrorPage';
 
 const IssueListPage = () => {
   const [page, setPage] = useState(1);
@@ -20,6 +21,7 @@ const IssueListPage = () => {
   const dispatch = useAppDispatch();
   const issues = useAppSelector((state: RootState) => state.issues.issueList);
   const isLoading = useAppSelector((state: RootState) => state.issues.isLoading);
+  const error = useAppSelector((state: RootState) => state.issues.error);
 
   useEffect(() => {
     dispatch(getIssues(page));
@@ -31,7 +33,9 @@ const IssueListPage = () => {
     }
   }, [isLoading]);
 
-  return (
+  return error ? (
+    <ErrorPage></ErrorPage>
+  ) : (
     <IssueListContainer>
       {Object.values(issues).map((issue: any, index: number) =>
         isLoading ? (
