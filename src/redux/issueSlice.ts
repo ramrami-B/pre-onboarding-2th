@@ -5,9 +5,10 @@ type Issue = {
   number: number;
   title: string;
   user: string;
-  updated_at: string;
+  updatedAt: string;
   comments: number;
   body: string;
+  avatarUrl: string;
 };
 interface IssuesState {
   issueList: object[];
@@ -18,7 +19,7 @@ interface IssuesState {
 
 const initialState: IssuesState = {
   issueList: [],
-  issue: { number: -1, title: '', user: '', updated_at: '', comments: -1, body: '' },
+  issue: { number: -1, title: '', user: '', updatedAt: '', comments: -1, body: '', avatarUrl: '' },
   isLoading: false,
   error: null,
 };
@@ -76,13 +77,15 @@ const issueSlice = createSlice({
     });
     builder.addCase(getIssueDetail.fulfilled, (state, action) => {
       state.isLoading = false;
+      console.log(action.payload);
       state.issue = {
         number: action.payload.number,
         title: action.payload.title,
         user: action.payload.user.login,
-        updated_at: action.payload.updated_at,
+        updatedAt: action.payload.updated_at,
         comments: action.payload.comments,
         body: action.payload.body,
+        avatarUrl: action.payload.user.avatar_url,
       };
     });
     builder.addCase(getIssueDetail.rejected, (state, action) => {
