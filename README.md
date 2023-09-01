@@ -6,7 +6,7 @@
 
 ## 🌱 About Ramhub Issues
 
-`Ramhub Issues`는 Github API를 활용하여 [facebook/react 레파지토리](https://github.com/facebook/react/issues)의 open 상태인 issue들을 commet 순으로 불러와서 보여주고, 상세 내용을 확인 할 수 있도록 제공해주는 페이지 입니다.
+`Ramhub Issues`는 Github API를 활용하여 [facebook/react 레파지토리](https://github.com/facebook/react/issues)의 open 상태인 issue들을 comment 순으로 불러와서 보여주고, 상세 내용을 확인할 수 있도록 제공해 주는 페이지입니다.
 
 _\*원티드 프리온보딩 인턴십 프론트엔드 2주차 과제_
 
@@ -31,7 +31,7 @@ http://ramhub-issues.s3-website.ap-northeast-2.amazonaws.com/
 - style: `styled-components`
 - 상태관리: `reduxjs/toolkit` `react-redux`
 - api: `octokit`
-- 배포: `aws s3`
+- 배포 및 CI/CD: `aws s3` `GitHub Actions`
 - react-router-dom v6.xx
 - node v18.xx
 
