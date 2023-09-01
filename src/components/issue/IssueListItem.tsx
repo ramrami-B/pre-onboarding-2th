@@ -13,9 +13,9 @@ const IssueListItem = ({ target, issue }: IssueListItemProps) => {
   return (
     <Link to={`/issue/${issue.number}`} style={{ textDecoration: 'none', color: '#000' }}>
       <IssueItemBox ref={target} id="issue-list-item">
-        <p style={{ fontWeight: 700 }}>
+        <h3>
           [#{issue.number}]&nbsp; &nbsp;{issue.title}
-        </p>
+        </h3>
         <WriterDateCommentsWrapper>
           <div>
             <p>✍🏻 작성자: {issue.user.login}</p>
