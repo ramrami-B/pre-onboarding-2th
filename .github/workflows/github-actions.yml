@@ -10,13 +10,13 @@ jobs:
   cicd:
     runs-on: ubuntu-latest
     steps:
-    - name: CHECKOUT
+    - name: Git checkout😉
       uses: actions/checkout@v2
-    - name: NPM CI
+    - name: Run "✏️ Remove node_modules and Install node packages"
       run: npm ci
-    - name: NPM RUN BUILD
+    - name: Run "⚒️ Project build"
       run: npm run build
-    - name: DEPLOY TO S3
+    - name: Run "🚀 Deploy to S3"
       uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks --delete
