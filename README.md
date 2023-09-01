@@ -81,5 +81,6 @@ http://ramhub-issues.s3-website.ap-northeast-2.amazonaws.com/
 
 ---
 
-참고:
+프로젝트를 진행하면서 작성한 글:
 [Redux in my 2nd Week Assignment](https://ramrami-b.notion.site/Redux-in-my-2nd-Week-Assignment-5fdc6ac9f1d141a498aa6dde0ca1c10b?pvs=4)
+[AWS S3 배포 & GitHub Actions CI/CD](https://ramrami-b.notion.site/AWS-S3-GitHub-Actions-CI-CD-3952f516cc6a40e5abd52dca02c7f4d1?pvs=4)
