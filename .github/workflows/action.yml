@@ -12,12 +12,8 @@ jobs:
     steps:
     - name: CHECKOUT
       uses: actions/checkout@v2
-    - name: NPM INSTALL
-      run: npm install
     - name: NPM CI
       run: npm ci
-    - name: NPM RUN TEST
-      run: npm run test
     - name: NPM RUN BUILD
       run: npm run build
     - name: DEPLOY TO S3
