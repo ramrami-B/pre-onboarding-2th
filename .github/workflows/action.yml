@@ -21,7 +21,7 @@ jobs:
     - name: NPM RUN BUILD
       run: npm run build
     - name: DEPLOY TO S3
-      uses: ramrami-B/ramhub-issues@main
+      uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks --delete
       env:
