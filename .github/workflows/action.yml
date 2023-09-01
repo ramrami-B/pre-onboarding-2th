@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: CHECKOUT
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
     - name: NPM INSTALL
       run: npm install
     - name: NPM CI
@@ -23,10 +23,10 @@ jobs:
     - name: DEPLOY TO S3
       uses: ramrami-B/ramhub-issues@main
       with:
-        args: --delete
+        args: --acl public-read --follow-symlinks --delete
       env:
+        SOURCE_DIR: './public'
+        AWS_REGION: 'ap-northeast-2'
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'ap-northeast-2'
-        SOURCE_DIR: 'build'
