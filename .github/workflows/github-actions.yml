@@ -21,7 +21,7 @@ jobs:
     - name: NPM RUN BUILD
       run: npm run build
     - name: DEPLOY TO S3
-      uses: ramrami-B/ramhub-issues@build
+      uses: ramrami-B/ramhub-issues@main
       with:
         args: --delete
       env:
