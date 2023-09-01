@@ -42,10 +42,10 @@ const IssueListPage = () => {
         isLoading ? (
           <Loading key={index}></Loading>
         ) : (
-          <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <IssueListItemContainer key={index}>
             {index !== 0 && index % 4 === 0 && <AdBanner></AdBanner>}
             <IssueListItem key={index} target={target} issue={issue}></IssueListItem>
-          </div>
+          </IssueListItemContainer>
         ),
       )}
     </>
@@ -53,3 +53,8 @@ const IssueListPage = () => {
 };
 
 export default IssueListPage;
+
+const IssueListItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

@@ -8,7 +8,7 @@ const AdBanner = () => {
   return (
     <AdBannerBox onClick={handlerOpenWanted}>
       <AdImage src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"></AdImage>
-      <h3>(광고) 모두가 나답게 일하고 즐겁게 성장할 수 있도록</h3>
+      <p style={{ fontWeight: 600 }}>(광고) 모두가 나답게 일하고 즐겁게 성장할 수 있도록</p>
     </AdBannerBox>
   );
 };

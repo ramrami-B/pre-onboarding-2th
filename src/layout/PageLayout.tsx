@@ -15,13 +15,13 @@ export default PageLayout;
 
 const Layout = styled.div`
   width: 100%;
-  margin-top: 8rem;
+  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   background-color: ${colors.white};
   overflow: auto;
 
   @media (max-width: 425px) {
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
 `;
